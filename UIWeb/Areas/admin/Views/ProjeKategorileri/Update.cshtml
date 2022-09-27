@@ -1,0 +1,57 @@
+﻿@model Entities.CategoriesProject
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Proje Kategorileri Güncelle</h4>
+            <a href="/admin/ProjeKategorileri" class="btn btn-primary" style="float:right">Geri Git</a> <br /><br /><br />
+            <form action="/admin/ProjeKategorileri/Update/@Model.UID" method="post">
+                 <input type="datetime"  name="CreatedDate" hidden="hidden" value=@Model.CreatedDate />
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Adı</label>
+                    <div class="col-sm-6">
+                        <input type="text" placeholder="Adı" asp-for="Name" class="form-control" value=@Model.Name />
+                                                  <span asp-validation-for="Name"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Durum</label>
+                    <div class="col-sm-6">
+                        <select class="form-control form-control-sm" name="Status">
+                            @if (Model.Status == true)
+                            {
+                                <option selected value=true>Aktif</option>
+                                <option value=false>Pasif</option>
+                            }
+                            else
+                            {
+                                <option value=true>Aktif</option>
+                                <option selected value=false>Pasif</option>
+                            }
+
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-gradient-info">Kaydet</button>
+                <a href="/admin/ProjeKategorileri" class="btn btn-light" type="button">Vazgeç</a>
+            </form>
+
+            <div class="col-md-12" style="margin-top:15px;">
+                @if (ViewBag.Message != null)
+                {
+                    if (ViewBag.Message.StatusCode == Core.Results.ComplexTypes.StatusCode.Success)
+                    {
+                        <div class="alert alert-success">@ViewBag.Message.UserMessage</div>
+                    }
+                    else
+                    {
+                        <div class="alert alert-danger">@ViewBag.Message.UserMessage</div>
+                    }
+                }
+            </div>
+
+
+
+
+        </div>
+    </div>
+</div>

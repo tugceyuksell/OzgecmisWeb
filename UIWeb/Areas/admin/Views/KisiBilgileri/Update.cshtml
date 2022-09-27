@@ -1,0 +1,147 @@
+﻿@model Entities.PersonalInformation
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Kişi Güncelle</h4>
+            <a href="/admin/KisiBilgileri" class="btn btn-primary" style="float:right">Geri Git</a> <br /><br /><br />
+            <form action="/admin/KisiBilgileri/Update/@Model.UID" method="post">
+                <input type="datetime" name="CreatedDate" hidden="hidden" value=@Model.CreatedDate />
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Ad Soyad</label>
+                    <div class="col-sm-6">
+                        <input type="text" placeholder="Ad Soyad" asp-for="NameSurname" class="form-control" value=@Model.NameSurname />
+                        <span asp-validation-for="NameSurname"></span>
+
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Doğum Tarihi</label>
+                    <div class="col-sm-6">
+                        <input type="datetime" placeholder="Doğum Tarihi" name="DateOfBirth" class="form-control" value=@Model.DateOfBirth />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Cinsiyet</label>
+                    <div class="col-sm-6">
+                        <select class="form-control" name="Gender">
+                            @if (Model.Gender == "Kadın")
+                            {
+                                <option selected value="Kadın">Kadın</option>
+                                <option value="Erkek">Erkek</option>
+                            }
+                            else
+                            {
+                                <option value="Kadın">Kadın</option>
+                                <option selected value="Erkek">Erkek</option>
+
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Öğrenim Durumu</label>
+                    <div class="col-sm-6">
+                        <input type="text" placeholder="Öğrenim Durumu" asp-for="Licence" class="form-control" value=@Model.Licence />
+                        <span asp-validation-for="Licence"></span>
+
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">E-mail</label>
+                    <div class="col-sm-6">
+                        <input type="text" placeholder="Email" asp-for="Email" class="form-control" value=@Model.Email />
+                        <span asp-validation-for="Email"></span>
+
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Telefon</label>
+                    <div class="col-sm-6">
+                        <input type="text" placeholder="Telefon" asp-for="Phone" class="form-control" value=@Model.Phone />
+                        <span asp-validation-for="Phone"></span>
+
+                    </div>
+                </div>                      <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Adres</label>
+                    <div class="col-sm-6">
+                        <textarea rows="4" type="text" placeholder="Adres" asp-for="Address" class="form-control">@Model.Address</textarea>
+                        <span asp-validation-for="Address"></span>
+
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">LinkedIn <i class="mdi mdi-linkedin-box"></i></label>
+                    <div class="col-sm-5">
+                        <input type="text" asp-for="LinkedIn" class="form-control" value=@Model.LinkedIn />
+                        <span asp-validation-for="LinkedIn"></span>
+
+
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">GitHub <i class="mdi mdi-github-box"></i></label>
+                    <div class="col-sm-5">
+                        <input type="text" asp-for="GitHub" class="form-control" value=@Model.GitHub />
+                        <span asp-validation-for="GitHub"></span>
+
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Medium <i class="mdi mdi-medium"></i></label>
+                    <div class="col-sm-5">
+                        <input type="text" asp-for="Medium" class="form-control" value=@Model.Medium />
+                        <span asp-validation-for="Medium"></span>
+
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Sürücü Belgesi</label>
+                    <div class="col-sm-6">
+                        <input type="text" asp-for="DrivingLicense" class="form-control" value=@Model.DrivingLicense />
+                        <span asp-validation-for="DrivingLicense"></span>
+
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Durum</label>
+                    <div class="col-sm-6">
+                        <select class="form-control form-control-sm" name="Status">
+                            @if (Model.Status == true)
+                            {
+                                <option selected value=true>Aktif</option>
+                                <option value=false>Pasif</option>
+                            }
+                            else
+                            {
+                                <option value=true>Aktif</option>
+                                <option selected value=false>Pasif</option>
+                            }
+
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-gradient-info">Kaydet</button>
+                <button class="btn btn-light">Vazgeç</button>
+            </form>
+
+            <div class="col-md-12" style="margin-top:15px;">
+                @if (ViewBag.Message != null)
+                {
+                    if (ViewBag.Message.StatusCode == Core.Results.ComplexTypes.StatusCode.Success)
+                    {
+                        <div class="alert alert-success">@ViewBag.Message.UserMessage</div>
+                    }
+                    else
+                    {
+                        <div class="alert alert-danger">@ViewBag.Message.UserMessage</div>
+                    }
+                }
+            </div>
+
+
+
+
+        </div>
+    </div>
+</div>

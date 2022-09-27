@@ -1,0 +1,56 @@
+﻿@model Entities.Abilities
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Yeni Yetenek</h4>
+            <a href="/admin/Yetenekler" class="btn btn-primary" style="float:right">Geri Git</a> <br /><br /><br />
+            <form action="/admin/Yetenekler/Insert" method="post" >
+
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Adı </label>
+                    <div class="col-sm-6">
+                          <input type="text" placeholder="Ad" asp-for="Name" class="form-control" />
+                          <span asp-validation-for="Name"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Değerlendirme </label>
+                    <div class="col-sm-6">
+                        <input type="text" placeholder="0-100 arasında değer giriniz." asp-for="Rating" class="form-control" style="margin-bottom:10px;" />
+                        <span asp-validation-for="Rating"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Kişi Seç</label>
+                    <div class="col-sm-6">
+                        <select class="form-control form-control-sm" name="PersonalInformationUID">
+                            @foreach (var item in ViewBag.Kisiler)
+                            {
+                                <option value="@item.UID">@item.NameSurname</option>
+                            }
+
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-gradient-info">Kaydet</button>
+               <a href="/admin/Yetenekler" class="btn btn-light" type="button">Vazgeç</a>
+
+            </form>
+
+            <div class="col-md-12" style="margin-top:15px;">
+                 @if (ViewBag.Message != null)
+                {
+                    if (ViewBag.Message.StatusCode == Core.Results.ComplexTypes.StatusCode.Success)
+                    {
+                        <div class="alert alert-success">@ViewBag.Message.UserMessage</div>
+                    }
+                    else
+                    {
+                        <div class="alert alert-danger">@ViewBag.Message.UserMessage</div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
