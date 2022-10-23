@@ -1,5 +1,4 @@
 ﻿using Entities;
-using Entities.DTO.CategoriesProject;
 
 namespace UIWeb.Models
 {
@@ -11,7 +10,6 @@ namespace UIWeb.Models
         public IList<Projects> Projects { get; set; }
         public IList<Experience> Experience { get; set; }
         public IList<CoursesAndCertificates> CoursesAndCertificates { get; set; }
-        public IList<CategoriesProject> CategoriesProjects { get; set; }
-        public IList<DtoCategoriesProjectName> DtoCategoriesProjectNames { get; set; }
+
     }
 }

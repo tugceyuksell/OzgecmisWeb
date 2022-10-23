@@ -1,4 +1,4 @@
-﻿@model UIWeb.Models.CVBilgileriViewModel;
+﻿@model  UIWeb.Models.CVBilgileriViewModel;
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+
+
+    <title>Özgeçmiş</title>
+    <link rel="shortcut icon" href="../../assets/images/favicon.ico" />
 
     <!-- Global stylesheets -->
     <link href="~/css/bootstrap/bootstrap.min.css" rel="stylesheet">
@@ -15,28 +19,24 @@
     <link href="~/css/devicons/css/devicons.min.css" rel="stylesheet">
     <link href="~/css/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
     <link href="~/css/style.css" rel="stylesheet">
-    <link href="~/css/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link  href="../../css/bootstrap/bootstrap.min.css" rel="stylesheet">
 
 
-    <script src="~/js/jquery/jquery.min.js"></script>
-    <script src="~/js/bootstrap/bootstrap.bundle.min.js"></script>
+     <script src="~/js/jquery/jquery.min.js"></script>
+     <script src="~/js/bootstrap/bootstrap.bundle.min.js"></script>
+   
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <link href="http://fonts.cdnfonts.com/css/closia" rel="stylesheet">
 
 </head>
 
 <body id="page-top">
 
-    <nav style="background-color: #cba4c8 !important " class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-        <a href="/Home">
-            <span class="d-block " style="max-width: 30%; height: auto; display: inline-table !important"> <img class="img-fluid img-profile " src="~/assets/images/flamingo.png" alt=""></span>
-        </a>
-        <h4 style="color: #865fa9" class="hoverable">Özgeçmiş</h4>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
         <a class="navbar-brand js-scroll-trigger" href="#page-top">
-
+            <span class="d-block d-lg-none  mx-0 px-0"><img src="img/logo-white.png" alt="" class="img-fluid"></span>
             <span class="d-none d-lg-block">
-                <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="/images/@Model.AboutMe.ProfilImage" alt="">
+                <img class="img-fluid img-profile rounded-circle mx-auto mb-2"  src="/images/@Model.AboutMe.ProfilImage"  alt="">
             </span>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -71,27 +71,26 @@
         <!--====================================================
                             ABOUT
         ======================================================-->
-        <section class="resume-section p-3 p-lg-5 d-flex d-column" id="about" style=" background-image: url(/images/@Model.AboutMe.BoardImage)">
+        <section class="resume-section p-3 p-lg-5 d-flex d-column" style=" background-image: url(/images/@Model.AboutMe.BoardImage)">
             <div class="my-auto">
-
+                
                 <h1 class="mb-0">
-                    @Model.PersonalInformation.NameSurname
+                  @Model.PersonalInformation.NameSurname
                 </h1>
                 <div class="subheading mb-5">
-                    @Model.PersonalInformation.Licence
+                   @Model.PersonalInformation.Licence
                 </div>
-                <p>@Model.AboutMe.CoverLetter</p>
                 <ul class="list-inline list-social-icons mb-0">
                     <li class="list-inline-item">
-                        <a href=@string.Concat("https://medium.com/","",@Model.PersonalInformation.Medium) target="_empty">
+                        <a href="#">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-medium fa-stack-1x fa-inverse"> </i></>
+                                <i class="fa fa-medium fa-stack-1x fa-inverse"></i>
                             </span>
                         </a>
                     </li>
                     <li class="list-inline-item">
-                        <a href=@string.Concat("https://linkedin.com/in/","",@Model.PersonalInformation.LinkedIn) target="_empty">
+                        <a href="#">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
@@ -99,7 +98,7 @@
                         </a>
                     </li>
                     <li class="list-inline-item">
-                        <a href=@string.Concat("https://github.com/","",@Model.PersonalInformation.GitHub) target="_empty">
+                        <a href="#">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-github fa-stack-1x fa-inverse"></i>
@@ -117,23 +116,23 @@
             <div class="row my-auto">
                 <div class="col-12">
                     <h2 class="  text-center">Deneyim</h2>
-                    <div style="background-color: #cba4c8 !important" class="mb-5 heading-border"></div>
+                    <div class="mb-5 heading-border"></div>
                 </div>
                 @foreach (var item in @Model.Experience)
                 {
-
-
-                    <div class="resume-item col-md-6 col-sm-12 ">
-                        <div class="card mx-0 p-4 mb-5" style="border-color: #17a2b8; box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.21);">
-                            <div class=" resume-content mr-auto">
-                                <h4 class="mb-3"><i class="fa fa-globe mr-3 text-info"></i> @item.Name</h4>
-                                <p>@item.Description</p>
-                            </div>
-                            <div class="resume-date text-md-right">
-                                <span class="text-primary">@item.StartedDate - @Html.Raw(@item.EndDate == null ? "Devam Ediyor" : @item.EndDate)</span>
-                            </div>
+                    
+                
+                <div class="resume-item col-md-6 col-sm-12 ">
+                    <div class="card mx-0 p-4 mb-5" style="border-color: #17a2b8; box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.21);">
+                        <div class=" resume-content mr-auto">
+                            <h4 class="mb-3"><i class="fa fa-globe mr-3 text-info"></i> @item.Name</h4>
+                            <p>@item.Description</p>
+                        </div>
+                        <div class="resume-date text-md-right">
+                            <span class="text-primary">@item.StartedDate - @Html.Raw(@item.EndDate == null ? "Devam Ediyor" : @item.EndDate)</span>
                         </div>
                     </div>
+                </div>
                 }
             </div>
         </section>
@@ -150,28 +149,103 @@
                 <div class="col-md-12">
                     <div class="port-head-cont">
                         <button class="btn btn-general btn-green filter-b" data-filter="all">Tümü</button>
-                        @foreach (var item in Model.DtoCategoriesProjectNames)
-                        {
-                            <button class="btn btn-general btn-green filter-b" data-filter="@item.UID"> @item.Name </button>
-                        }
+                        <button class="btn btn-general btn-green filter-b" data-filter="consulting">Web Design</button>
+                        <button class="btn btn-general btn-green filter-b" data-filter="finance">Mobile Apps</button>
+                        <button class="btn btn-general btn-green filter-b" data-filter="marketing">Graphics Design</button>
                     </div>
                 </div>
             </div>
             <div class="row my-auto">
-
-                @foreach (var item in Model.Projects)
-                {
-                    <div class="col-sm-4 portfolio-item filter @item.CategoriesProjectUID">
-                        <a class="portfolio-link" href="#@item.UID" data-toggle="modal">
-                            <div class="caption-port">
-                                <div class="caption-port-content">
-                                    <i class="fa fa-search-plus fa-3x"></i>
-                                </div>
+                <div class="col-sm-4 portfolio-item filter finance">
+                    <a class="portfolio-link" href="#portfolioModal4" data-toggle="modal">
+                        <div class="caption-port">
+                            <div class="caption-port-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
                             </div>
-                            <img class="img-fluid" src="~/images/@item.Image" alt="">
-                        </a>
-                    </div>
-                }
+                        </div>
+                        <img class="img-fluid" src="img/portfolio/p-4.jpg" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item filter marketing">
+                    <a class="portfolio-link" href="#portfolioModal5" data-toggle="modal">
+                        <div class="caption-port">
+                            <div class="caption-port-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="img/portfolio/p-5.jpg" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item filter consulting">
+                    <a class="portfolio-link" href="#portfolioModal6" data-toggle="modal">
+                        <div class="caption-port">
+                            <div class="caption-port-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="img/portfolio/p-6.jpg" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item filter consulting">
+                    <a class="portfolio-link" href="#portfolioModal7" data-toggle="modal">
+                        <div class="caption-port">
+                            <div class="caption-port-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="img/portfolio/p-7.jpg" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item filter consulting">
+                    <a class="portfolio-link" href="#portfolioModal8" data-toggle="modal">
+                        <div class="caption-port">
+                            <div class="caption-port-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="img/portfolio/p-8.jpg" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item filter finance">
+                    <a class="portfolio-link" href="#portfolioModal9" data-toggle="modal">
+                        <div class="caption-port">
+                            <div class="caption-port-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="img/portfolio/p-9.jpg" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item filter marketing">
+                    <a class="portfolio-link" href="#portfolioModal1" data-toggle="modal">
+                        <div class="caption-port">
+                            <div class="caption-port-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="img/portfolio/p-1.jpg" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item filter marketing">
+                    <a class="portfolio-link" href="#portfolioModal2" data-toggle="modal">
+                        <div class="caption-port">
+                            <div class="caption-port-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="img/portfolio/p-2.jpg" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item filter finance">
+                    <a class="portfolio-link" href="#portfolioModal3" data-toggle="modal">
+                        <div class="caption-port">
+                            <div class="caption-port-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="img/portfolio/p-3.jpg" alt="">
+                    </a>
+                </div>
             </div>
         </section>
 
@@ -184,12 +258,13 @@
                 <div class="row text-center my-auto ">
                     @foreach (var item in Model.Abilities)
                     {
-                        <div class="col-md-3 col-sm-6">
-                            <div class="skill-item">
-                                <h2><span class="counter"> @item.Rating </span><span>%</span></h2>
-                                <p>@item.Name</p>
-                            </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="skill-item">
+                            <i class="fa fa-html5 fa-5x"></i>
+                            <h2><span class="counter"> @item.Rating </span><span>%</span></h2>
+                            <p>@item.Name</p>
                         </div>
+                    </div>
                     }
                 </div>
             </div>
@@ -204,25 +279,24 @@
                     <h2 class="  text-center">Kurslar ve Sertifikalar</h2>
                     <div class="mb-5 heading-border"></div>
                 </div>
-                <div class="main-award" id="award-box">
-                    @foreach (var item in Model.CoursesAndCertificates)
-                    {
-                        <div class="award">
-                            <div class="award-icon"></div>
-                            <div class="award-content">
-                                <span class="date">@item.Date</span>
-                                <h5 class="title">@item.Name</h5>
-                                <p class="description">
-                                    @item.Description
-                                </p>
-                            </div>
+                @foreach (var item in Model.CoursesAndCertificates)
+                {
+                           <div class="main-award" id="award-box">
+                    <div class="award">
+                        <div class="award-icon"></div>
+                        <div class="award-content">
+                            <span class="date">@item.Date</span>
+                            <h5 class="title">@item.Name</h5>
+                            <p class="description">
+                               @item.Description
+                            </p>
                         </div>
-
-                    }
+                    </div>
                 </div>
+                }
+         
             </div>
         </section>
-
 
         <!--====================================================
                               CONTACT
@@ -236,31 +310,31 @@
                         <p></p>
                     </div>
                     @using (Html.BeginForm("SendingToMail", "Home", FormMethod.Post))
-                    {
-                        if (TempData["Result"] != null)
-                        {
-                            if (TempData["Result"].ToString() == "true")
+{
+     if (TempData["Result"] != null)
+    {
+                            if(TempData["Result"].ToString() == "true")
                             {
-                                <div class="alert alert-success">Mesajınız başarıyla gönderilmiştir</div>
+                                <div class="alert alert-success">Mesajınız başarıyla gönderilmiştir</div> 
                             }
-                        }
+    }
 
-                        <div class="row con-form">
-                            <input hidden type="text" name="UID" value="@Model.PersonalInformation.UID">
-                            <div class="col-md-12">
-                                <input type="text" name="Name" placeholder="Ad Soyad" class="form-control">
-                            </div>
-                            <div class="col-md-12">
-                                <input type="text" name="Email" placeholder="Email" class="form-control">
-                            </div>
-                            <div class="col-md-12">
-                                <input type="text" name="Subject" placeholder="Konu" class="form-control">
-                            </div>
-                            <div class="col-md-12">
-                                <input type="text" name="Message" placeholder="Mesaj" class="form-control">
-                            </div>
-                            <div class="col-md-12 sub-but"> <input type="submit" value="Gönder" class="btn btn-general btn-white" /></div>
+                    <div class="row con-form">
+                        <input hidden type="text" name="UID" value="@Model.PersonalInformation.UID">
+                        <div class="col-md-12">
+                            <input type="text" name="Name" placeholder="Full Name" class="form-control">
                         </div>
+                        <div class="col-md-12">
+                            <input type="text" name="Email" placeholder="Email" class="form-control">
+                        </div>
+                        <div class="col-md-12">
+                            <input type="text" name="Subject" placeholder="Subject" class="form-control">
+                        </div>
+                         <div class="col-md-12">
+                            <input type="text" name="Message" placeholder="Message" class="form-control">
+                        </div>
+                        <div class="col-md-12 sub-but"> <input type="submit" value="Gönder" class="btn btn-general btn-white" /></div>
+                    </div>
                     }
                 </div>
                 <div class="col-md-4 col-sm-12 mt-5">
@@ -268,7 +342,7 @@
                         <div class="contact-add contact-box-desc">
                             <h3><i class="fa fa-map-marker cl-atlantis fa-2x"></i> Adres</h3>
                             <p>
-                                @Model.PersonalInformation.Address <br>
+                               @Model.PersonalInformation.Address <br>
                             </p>
                         </div>
                         <div class="contact-phone contact-side-desc contact-box-desc">
@@ -305,44 +379,52 @@
     <!--====================================================
                         PORTFOLIO MODALS
     ======================================================-->
-
-    @foreach (var item in Model.Projects)
-    {
-        <div class="portfolio-modal modal fade" id="@item.UID" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="close-modal" data-dismiss="modal">
-                        <div class="lr">
-                            <div class="rl"></div>
-                        </div>
+    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl"></div>
                     </div>
-                    <div class="container">
-                        <div class="row">
-                            <div class="modal-body">
-                                <div class="title-bar">
-                                    <div class="col-md-12">
-                                        <h2 class="text-center">@item.Name</h2>
-                                        <div class="heading-border"></div>
-                                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="modal-body">
+                            <div class="title-bar">
+                                <div class="col-md-12">
+                                    <h2 class="text-center">Projelerim</h2>
+                                    <div class="heading-border"></div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <img class="img-fluid img-centered" src="~/images/@item.Image" alt="">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>@item.Description</p>
-                                        <ul class="list-inline item-details">
-                                            <li>
-                                                Proje Linki:
-                                                <strong>
-                                                    <a href="@item.Address" target="_empty">@item.Address</a>
-                                                </strong>
-                                            </li>
-                                        </ul>
-                                        <button class="btn btn-general btn-white" type="button" data-dismiss="modal">
-                                            <i class="fa fa-times"></i> Kapat
-                                        </button>
-                                    </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <img class="img-fluid img-centered" src="img/portfolio/p-1.jpg" alt="">
+                                </div>
+                                <div class="col-md-6">
+                                    <p>Blog Sitesi</p>
+                                    <ul class="list-inline item-details">
+                                        <li>
+                                            Client:
+                                            <strong>
+                                                <a href="#">Techs Soft</a>
+                                            </strong>
+                                        </li>
+                                        <li>
+                                            Date:
+                                            <strong>
+                                                <a href="#">April 2018</a>
+                                            </strong>
+                                        </li>
+                                        <li>
+                                            Service:
+                                            <strong>
+                                                <a href="#">Web Development</a>
+                                            </strong>
+                                        </li>
+                                    </ul>
+                                    <button class="btn btn-general btn-white" type="button" data-dismiss="modal">
+                                        <i class="fa fa-times"></i> Close
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -350,8 +432,115 @@
                 </div>
             </div>
         </div>
-
-    }
+    </div>
+    <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl"></div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="modal-body">
+                            <div class="title-bar">
+                                <div class="col-md-12">
+                                    <h2 class="text-center">Our Project</h2>
+                                    <div class="heading-border"></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <img class="img-fluid img-centered" src="img/portfolio/p-2.jpg" alt="">
+                                </div>
+                                <div class="col-md-6">
+                                    <p>Our new Project every processes had become fragmented; meaning quality and service were inconsistent. This lack of standardization was adversely impacting operating costs, productivity and customer satisfaction. For several years now Payfast has worked strategically with innovations as a means of developing new solutions, products and services. In line with this vision, Success was approached to find new payments solutions to offer Payfast customers on their website, including open invoice and partial payments options.</p>
+                                    <ul class="list-inline item-details">
+                                        <li>
+                                            Client:
+                                            <strong>
+                                                <a href="#">Techs Soft</a>
+                                            </strong>
+                                        </li>
+                                        <li>
+                                            Date:
+                                            <strong>
+                                                <a href="#">April 2018</a>
+                                            </strong>
+                                        </li>
+                                        <li>
+                                            Service:
+                                            <strong>
+                                                <a href="#">Web Development</a>
+                                            </strong>
+                                        </li>
+                                    </ul>
+                                    <button class="btn btn-general btn-white" type="button" data-dismiss="modal">
+                                        <i class="fa fa-times"></i> Close
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl"></div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="modal-body">
+                            <div class="title-bar">
+                                <div class="col-md-12">
+                                    <h2 class="text-center">Our Project</h2>
+                                    <div class="heading-border"></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <img class="img-fluid img-centered" src="img/portfolio/p-3.jpg" alt="">
+                                </div>
+                                <div class="col-md-6">
+                                    <p>Our new Project every processes had become fragmented; meaning quality and service were inconsistent. This lack of standardization was adversely impacting operating costs, productivity and customer satisfaction. For several years now Payfast has worked strategically with innovations as a means of developing new solutions, products and services. In line with this vision, Success was approached to find new payments solutions to offer Payfast customers on their website, including open invoice and partial payments options.</p>
+                                    <ul class="list-inline item-details">
+                                        <li>
+                                            Client:
+                                            <strong>
+                                                <a href="#">Techs Soft</a>
+                                            </strong>
+                                        </li>
+                                        <li>
+                                            Date:
+                                            <strong>
+                                                <a href="#">April 2018</a>
+                                            </strong>
+                                        </li>
+                                        <li>
+                                            Service:
+                                            <strong>
+                                                <a href="#">Web Development</a>
+                                            </strong>
+                                        </li>
+                                    </ul>
+                                    <button class="btn btn-general btn-white" type="button" data-dismiss="modal">
+                                        <i class="fa fa-times"></i> Close
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <!-- Global javascript -->
@@ -361,24 +550,25 @@
     <script src="~/js/counter/jquery.waypoints.min.js"></script>
     <script src="~/js/counter/jquery.counterup.min.js"></script>
     <script src="~/js/custom.js"></script>
-    <script>
-        $(document).ready(function () {
+    <script>$(document).ready(function(){
 
-            $(".filter-b").click(function () {
-                var value = $(this).attr('data-filter');
-                if (value == "all") {
-                    $('.filter').show('1000');
-                }
-                else {
-                    $(".filter").not('.' + value).hide('3000');
-                    $('.filter').filter('.' + value).show('3000');
-                }
-            });
-
-            if ($(".filter-b").removeClass("active")) {
-                $(this).removeClass("active");
+        $(".filter-b").click(function(){
+            var value = $(this).attr('data-filter');
+            if(value == "all")
+            {
+                $('.filter').show('1000');
             }
-            $(this).addClass("active");
+            else
+            {
+                $(".filter").not('.'+value).hide('3000');
+                $('.filter').filter('.'+value).show('3000');
+            }
+        });
+
+        if ($(".filter-b").removeClass("active")) {
+          $(this).removeClass("active");
+        }
+        $(this).addClass("active");
         });
 
         // SKILLS

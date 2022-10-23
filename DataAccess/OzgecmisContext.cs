@@ -19,7 +19,7 @@ namespace DataAccess
         public DbSet<Members> Members { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=DESKTOP-NAFHE5P\MSSQL;Database=OzgecmisWeb;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer(@"Server=LT20;Database=OzgecmisWeb;Trusted_Connection=True;");
         }
         // Veritabanında işlem yapılacağı zaman Mapping Olayını Gerçekleştiren Metot.
         protected override void OnModelCreating(ModelBuilder modelBuilder)

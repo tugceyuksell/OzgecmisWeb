@@ -96,14 +96,13 @@ a:active {
       }
       #sideNav .navbar-brand {
           display: flex;
-          margin: 10px 10px 0;
-          padding: 7rem;
+          margin: auto auto 0;
+          padding: 0.5rem;
       }
       #sideNav .navbar-brand .img-profile {
-          max-width: 15rem;
+          max-width: 10rem;
           max-height: 10rem;
           border: 0.5rem solid rgba(255, 255, 255, 0.2);
-
       }
       #sideNav .navbar-collapse {
           display: flex;
@@ -140,39 +139,39 @@ a:active {
 }
 
 .btn-white {
-    border-color: #cba4c8;
-    background-color: #cba4c8;
+    border-color: #2196f3;
+    background-color: #2196f3;
     color: #fff;
 }
 
-    .btn-white:hover,
-    .btn-white:focus {
-        background-color: transparent;
-        color: #cba4c8;
-        cursor: pointer;
-    }
-
-.btn-green {
-    border-color: #cba4c8;
-    color: #cba4c8;
+.btn-white:hover,
+.btn-white:focus {
+    background-color: transparent;
+    color: #2196f3;
+    cursor: pointer;
 }
 
-    .btn-green:hover,
-    .btn-green:focus {
-        background-color: #cba4c8;
-        color: #fff;
-        cursor: pointer;
-    }
+.btn-green {
+    border-color: #2196f3;
+    color: #2196f3;
+}
+
+.btn-green:hover,
+.btn-green:focus {
+    background-color: #2196f3;
+    color: #fff;
+    cursor: pointer;
+}
 
 /*==================================================
                   SECTION (Generic)
 ====================================================*/
-.heading-border {
-    width: 60px;
-    height: 10px;
-    background-color: #cba4c8;
-    margin: 0 auto 20px auto;
-}
+  .heading-border {
+      width: 60px;
+      height: 10px;
+      background-color: #2196f3;
+      margin: 0 auto 20px auto;
+  }
 
   section.resume-section {
       border-bottom: 1px solid #dee2e6;
@@ -579,36 +578,36 @@ a:active {
     right: -14%;
 }
 
-    #award-box .date {
-        display: block;
-        font-size: 15px;
-        font-weight: 600;
-        color: #cba4c8;
-        margin: 0 0 8px;
-        transition: all 0.3s ease 0s;
-    }
+#award-box .date {
+    display: block;
+    font-size: 15px;
+    font-weight: 600;
+    color: #39b3ff;
+    margin: 0 0 8px;
+    transition: all 0.3s ease 0s;
+}
 
-    #award-box .award:hover .date {
-        color: #cba4c8;
-    }
+#award-box .award:hover .date {
+    color: #444;
+}
 
-    #award-box .title {
-        font-size: 18px;
-        color: #cba4c8;
-        margin-top: 0;
-        transition: all 0.3s ease 0s;
-    }
+#award-box .title {
+    font-size: 18px;
+    color: #444;
+    margin-top: 0;
+    transition: all 0.3s ease 0s;
+}
 
-    #award-box .award:hover .title {
-        color: #cba4c8;
-    }
+#award-box .award:hover .title {
+    color: #39b3ff;
+}
 
-    #award-box .description {
-        font-size: 16px;
-        color: #cba4c8;
-        line-height: 28px;
-        margin-top: 8px;
-    }
+#award-box .description {
+    font-size: 16px;
+    color: #777;
+    line-height: 28px;
+    margin-top: 8px;
+}
 
 #award-box .award:nth-child(2n),
 #award-box .award:nth-child(2n) .award-content {

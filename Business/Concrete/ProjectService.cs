@@ -41,7 +41,7 @@ namespace Business.Concrete
 
         public async Task<IList<Projects>> GetProjectsByPersonalInformationUIDAsync(Guid personalInformationUID)
         {
-            return await _unitOfWork.RepoProjects.AsyncGetAll(x => x.PersonalInformationUID == personalInformationUID); // PersonalInfUID olarak değiştirilecek
+            return await _unitOfWork.RepoProjects.AsyncGetAll(x => x.UID == personalInformationUID); // PersonalInfUID olarak değiştirilecek
         }
     }
 }
