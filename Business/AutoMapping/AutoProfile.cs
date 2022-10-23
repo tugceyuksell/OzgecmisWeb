@@ -36,6 +36,7 @@ namespace Business.AutoMapping
             CreateMap<CategoriesProject, DtoCategoriesProjectInsert>().ReverseMap()
                 .ForMember(i => i.UID, s => s.MapFrom(s => Guid.NewGuid()))
                 .ForMember(i => i.CreatedDate, s => s.MapFrom(s => DateTime.Now));
+            CreateMap<CategoriesProject, DtoCategoriesProjectName>().ReverseMap();
             CreateMap<CategoriesProject, DtoCategoriesProjectUpdate>().ReverseMap()
                .ForMember(i => i.UpdatedDate, s => s.MapFrom(s => DateTime.Now));
             CreateMap<CoursesAndCertificates, DtoCoursesAndCertificatesInsert>()

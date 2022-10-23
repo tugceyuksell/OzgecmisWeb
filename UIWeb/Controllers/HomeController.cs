@@ -14,7 +14,8 @@ namespace UIWeb.Controllers
         private readonly IExperienceService experienceService;
         private readonly ICoursesAndCertificatesService coursesAndCertificatesService;
         private readonly IProjectService projectService;
-        public HomeController(IPersonalInformationService service, IAboutMeService aboutMeservice, IAbilitiesService abilitiesService, IExperienceService experienceService, ICoursesAndCertificatesService coursesAndCertificatesService, IProjectService projectService)
+        private readonly ICategoriesProjectService categoriesProjectService;
+        public HomeController(IPersonalInformationService service, IAboutMeService aboutMeservice, IAbilitiesService abilitiesService, IExperienceService experienceService, ICoursesAndCertificatesService coursesAndCertificatesService, IProjectService projectService, ICategoriesProjectService categoriesProjectService)
         {
             this.service = service;
             this.aboutMeservice = aboutMeservice;
@@ -22,6 +23,7 @@ namespace UIWeb.Controllers
             this.experienceService = experienceService;
             this.coursesAndCertificatesService = coursesAndCertificatesService;
             this.projectService = projectService;
+            this.categoriesProjectService = categoriesProjectService;
         }
         public IActionResult Index()
         {
@@ -38,6 +40,18 @@ namespace UIWeb.Controllers
             model.Experience = experienceService.GetExperienceByPersonalInformationUIDAsync(UID).Result;
             model.Projects = projectService.GetProjectsByPersonalInformationUIDAsync(UID).Result;
             model.PersonalInformation = service.GetPersonalInformationAsync(UID).Result;
+            var categoriesProjectAll = categoriesProjectService.GetAllCategoriesProjectAsync().Result;
+            model.DtoCategoriesProjectNames = (IList<Entities.DTO.CategoriesProject.DtoCategoriesProjectName>)(from cc in categoriesProjectAll
+                      join dd in model.Projects on cc.UID equals dd.CategoriesProjectUID
+                      group cc by new { cc.Name} into qq
+                      select new Entities.DTO.CategoriesProject.DtoCategoriesProjectName
+                      {
+                          Name = qq.Key.Name,
+                          UID= qq.FirstOrDefault().UID
+                      }).ToList();
+
+
+
             return View(model);
         }
 
